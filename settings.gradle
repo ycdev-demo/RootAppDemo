@@ -1,0 +1,4 @@
+include ':app'
+include ':libsuperuser'
+
+project(':libsuperuser').projectDir = file('submodules/libsuperuser/libsuperuser')

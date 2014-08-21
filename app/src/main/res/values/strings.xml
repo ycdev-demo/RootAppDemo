@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RootAppDemo</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="root_shell_install_app">RootShell——安装应用</string>
+    <string name="root_shell_uninstall_app">RootShell——卸装应用</string>
+
+    <string name="app_process_reboot">AppProcess——重启手机</string>
+
+    <string name="tips_copy_apk_failed">拷贝APK包失败！</string>
+    <string name="tips_copy_jar_failed">拷贝Jar失败</string>
+
+    <string name="tips_app_installing">正在安装应用 %1$s</string>
+    <string name="tips_app_added">%1$s 已安装</string>
+    <string name="tips_app_uninstalling">正在卸载应用 %1$s</string>
+    <string name="tips_app_removed">%1$s 已卸装</string>
+
+    <string name="tips_rebooting">正在准备重启手机</string>
+</resources>
