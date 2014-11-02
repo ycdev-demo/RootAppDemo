@@ -1,4 +1,4 @@
-package me.ycdev.demo.rootapp;
+package me.ycdev.android.demo.rootapp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

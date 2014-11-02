@@ -1,4 +1,4 @@
-package me.ycdev.demo.rootapp;
+package me.ycdev.android.demo.rootapp;
 
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
@@ -24,7 +24,7 @@ import java.net.URI;
 
 import eu.chainfire.libsuperuser.Debug;
 import eu.chainfire.libsuperuser.Shell;
-import me.ycdev.demo.rootapp.utils.IoUtils;
+import me.ycdev.android.demo.rootapp.utils.IoUtils;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
@@ -201,7 +201,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 String destFile = appContext.getPackageCodePath();
                 String[] cmds = new String[] {
                         "export CLASSPATH=" + destFile,
-                        "/system/bin/app_process /system/bin me.ycdev.demo.rootapp.jar.TaskExecutor reboot"
+                        "/system/bin/app_process /system/bin me.ycdev.android.demo.rootapp.jar.TaskExecutor reboot"
                 };
                 Shell.SU.run(cmds);
             }

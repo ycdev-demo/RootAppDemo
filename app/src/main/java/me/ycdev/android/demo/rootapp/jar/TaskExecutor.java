@@ -1,4 +1,4 @@
-package me.ycdev.demo.rootapp.jar;
+package me.ycdev.android.demo.rootapp.jar;
 
 import android.content.Context;
 import android.os.IBinder;

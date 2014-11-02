@@ -1,4 +1,4 @@
-package me.ycdev.demo.rootapp.utils;
+package me.ycdev.android.demo.rootapp.utils;
 
 import java.io.Closeable;
 import java.io.FileOutputStream;
