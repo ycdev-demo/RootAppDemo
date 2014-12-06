@@ -6,10 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -168,6 +170,16 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
     }
 
+    public static void runSuCommand(String[] cmds, String selinuxContext) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP
+                || TextUtils.isEmpty(selinuxContext)) {
+            Shell.SU.run(cmds);
+        } else {
+            String shell = Shell.SU.shell(0, selinuxContext);
+            Shell.run(shell, cmds, null, false);
+        }
+    }
+
     private void installApkByRootShell() {
         final File apkFile = getFileStreamPath(ASSETS_APK_FILENAME);
         new MyTask(getString(R.string.tips_app_installing, apkFile.getAbsoluteFile()), new Runnable() {
@@ -176,7 +188,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 String[] cmds = new String[] {
                         "pm install -r \"" + apkFile.getAbsolutePath() + "\""
                 };
-                Shell.SU.run(cmds);
+                runSuCommand(cmds, "u:r:system_app:s0");
             }
         }).execute();
     }
@@ -188,7 +200,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 String[] cmds = new String[] {
                         "pm uninstall \"" + APK_PACKAGE_NAME + "\""
                 };
-                Shell.SU.run(cmds);
+                runSuCommand(cmds, "u:r:system_app:s0");
             }
         }).execute();
     }
@@ -203,7 +215,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                         "export CLASSPATH=" + destFile,
                         "/system/bin/app_process /system/bin me.ycdev.android.demo.rootapp.jar.TaskExecutor reboot"
                 };
-                Shell.SU.run(cmds);
+                runSuCommand(cmds, "u:r:system_app:s0");
             }
         }).execute();
     }
