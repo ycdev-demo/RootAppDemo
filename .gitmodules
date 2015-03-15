@@ -1,3 +1,3 @@
 [submodule "submodules/libsuperuser"]
 	path = submodules/libsuperuser
-	url = https://github.com/yongce/libsuperuser.git
+	url = https://github.com/ycdev-fork/libsuperuser.git
